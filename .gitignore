@@ -1,0 +1,31 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+.BIN/
+
+# Editores y entornos
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos temporales y logs
+*.log
+tmp/
+temp/
+
+# Python (si se usan scripts locales)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+setup_assets.py
