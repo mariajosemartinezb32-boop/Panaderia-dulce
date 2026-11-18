@@ -412,7 +412,7 @@ const AdminUI = {
     tbody.innerHTML = prods.map(p => `
       <tr>
         <td style="width: 60px;">
-          <img src="${p.image}" alt="${p.name}" class="admin-table-thumb" onerror="this.src='pan-casero-dorado.jpeg'">
+          <img src="${p.image}" alt="${p.name}" class="admin-table-thumb" onerror="this.src='img/pan-casero-dorado.jpeg'">
         </td>
         <td>
           <div style="font-weight: 700; color: var(--cocoa-dark);">${p.name}</div>
@@ -523,7 +523,7 @@ const AdminUI = {
     }
 
     if (!image) {
-      image = category === 'postres' ? 'torta-chocolate-supremo.jpeg' : 'pan-casero-dorado.jpeg';
+      image = category === 'postres' ? 'img/torta-chocolate-supremo.jpeg' : 'img/pan-casero-dorado.jpeg';
     }
 
     const prodData = {

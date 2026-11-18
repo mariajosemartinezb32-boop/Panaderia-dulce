@@ -122,7 +122,7 @@ function renderProducts() {
             alt="${prod.name}" 
             loading="lazy" 
             class="product-img"
-            onerror="this.src='pan-casero-dorado.jpeg'"
+            onerror="this.src='img/pan-casero-dorado.jpeg'"
           >
           ${prod.badge ? `<span class="product-badge badge-${prod.badgeType || 'fresh'}">${prod.badge}</span>` : ''}
           ${!isAvail ? `<span class="product-badge badge-sold-out">Agotado</span>` : ''}
@@ -260,7 +260,7 @@ function setupCartDrawer() {
 
     itemsList.innerHTML = items.map((item, idx) => `
       <div class="cart-item-row">
-        <img src="${item.image}" alt="${item.name}" class="cart-item-thumb" onerror="this.src='pan-casero-dorado.jpeg'">
+        <img src="${item.image}" alt="${item.name}" class="cart-item-thumb" onerror="this.src='img/pan-casero-dorado.jpeg'">
         <div class="cart-item-info">
           <strong>${item.name}</strong>
           <span class="cart-item-price">$${item.price.toLocaleString('es-CO')} c/u</span>
@@ -507,7 +507,7 @@ function initPOSCatalog(query = '') {
 
   container.innerHTML = prods.map(p => `
     <button type="button" class="pos-product-btn" onclick="bakeryPOS.addToSale('${p.id}')">
-      <img src="${p.image}" alt="${p.name}" class="pos-thumb" onerror="this.src='pan-casero-dorado.jpeg'">
+      <img src="${p.image}" alt="${p.name}" class="pos-thumb" onerror="this.src='img/pan-casero-dorado.jpeg'">
       <div class="pos-prod-info">
         <strong>${p.name}</strong>
         <span>$${p.price.toLocaleString('es-CO')}</span>

@@ -26,7 +26,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Panadería Artesanal",
     price: 3500,
     priceFormatted: "$3.500",
-    image: "pan-casero-dorado.jpeg",
+    image: "img/pan-casero-dorado.jpeg",
     description: "Crujiente por fuera y esponjoso por dentro. Elaborado con masa madre tradicional y horneado caliente 3 veces al día.",
     badge: "🔥 Recién Horneado",
     badgeType: "fresh",
@@ -39,7 +39,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Panadería Artesanal",
     price: 8000,
     priceFormatted: "$8.000",
-    image: "pan-queso-paquete.jpeg",
+    image: "img/pan-queso-paquete.jpeg",
     description: "Masa suave enriquecida con abundante queso campesino fresco de la región. Ideal para acompañar el chocolate o café caliente.",
     badge: "⭐ Favorito",
     badgeType: "popular",
@@ -52,7 +52,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Panadería Artesanal",
     price: 6500,
     priceFormatted: "$6.500",
-    image: "pan-integral-semillas.jpeg",
+    image: "img/pan-integral-semillas.jpeg",
     description: "100% harina de trigo integral con semillas de chía, linaza, ajonjolí y avena en hojuelas. Saludable, nutritivo y rico en fibra.",
     badge: "🌿 Saludable",
     badgeType: "healthy",
@@ -65,7 +65,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Panadería Artesanal",
     price: 2500,
     priceFormatted: "$2.500",
-    image: "mogolla-campesina.jpeg",
+    image: "img/mogolla-campesina.jpeg",
     description: "La tradicional mogolla de campo con crocantes trocitos de chicharrón tostado. Sabor autóctono y textura inigualable.",
     badge: "🇨🇴 Tradicional",
     badgeType: "traditional",
@@ -78,7 +78,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Panadería Artesanal",
     price: 18000,
     priceFormatted: "$18.000",
-    image: "surtido-panes-especiales.jpeg",
+    image: "img/surtido-panes-especiales.jpeg",
     description: "Variedad de 10 piezas de nuestros mejores panes dulces y salados: croissant, pan rollo, trenza de queso, pan de bono y mogollas.",
     badge: "🧺 Para Compartir",
     badgeType: "combo",
@@ -91,7 +91,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Galletas & Tradicionales",
     price: 5000,
     priceFormatted: "$5.000",
-    image: "galleta-chocochips.jpeg",
+    image: "img/galleta-chocochips.jpeg",
     description: "Galletas artesanales de mantequilla con abundantes chispas de chocolate semiamargo derretidas en cada mordisco.",
     badge: "🍪 Horneadas Hoy",
     badgeType: "fresh",
@@ -104,7 +104,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Galletas & Tradicionales",
     price: 9000,
     priceFormatted: "$9.000",
-    image: "galletas-decoradas.jpeg",
+    image: "img/galletas-decoradas.jpeg",
     description: "Delicadas galletas artesanales con formas temáticas y glaseado real de colores. Perfectas para un detalle o regalo especial.",
     badge: "🎁 Detalle Dulce",
     badgeType: "gift",
@@ -117,7 +117,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Galletas & Tradicionales",
     price: 4500,
     priceFormatted: "$4.500",
-    image: "polvorones-rojos.jpeg",
+    image: "img/polvorones-rojos.jpeg",
     description: "Los clásicos polvorones de panadería con su textura suave y quebradiza que se deshace en la boca, cubiertos de azúcar.",
     badge: "✨ Clásico",
     badgeType: "traditional",
@@ -130,7 +130,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Tortas & Postres",
     price: 48000,
     priceFormatted: "$48.000",
-    image: "torta-chocolate-supremo.jpeg",
+    image: "img/torta-chocolate-supremo.jpeg",
     description: "Bizcochuelo intenso de cacao colombiano 70%, relleno de ganache cremosa de chocolate y cubierto con virutas de chocolate suizo.",
     badge: "🍫 Chocolate 100%",
     badgeType: "popular",
@@ -143,7 +143,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Tortas & Postres",
     price: 42000,
     priceFormatted: "$42.000",
-    image: "torta-tres-leches.jpeg",
+    image: "img/torta-tres-leches.jpeg",
     description: "Bizcocho súper húmedo bañado en nuestra salsa secreta de tres leches, coronado con merengue suizo dorado y canela en polvo.",
     badge: "🥛 Súper Húmeda",
     badgeType: "popular",
@@ -156,7 +156,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Tortas & Postres",
     price: 46000,
     priceFormatted: "$46.000",
-    image: "torta-frutos-rojos.jpeg",
+    image: "img/torta-frutos-rojos.jpeg",
     description: "Suave bizcocho de vainilla con mermelada casera de fresas, moras y agraz silvestres, decorada con crema chantilly y frutas frescas.",
     badge: "🍓 Fruta Natural",
     badgeType: "fresh",
@@ -169,7 +169,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Tortas & Postres",
     price: 55000,
     priceFormatted: "$55.000",
-    image: "torta-tematica.jpeg",
+    image: "img/torta-tematica.jpeg",
     description: "Diseño personalizado para celebraciones con topper festivo, doble capa de relleno a tu gusto y dedicatoria personalizada.",
     badge: "🎉 Cumpleaños",
     badgeType: "special",
@@ -182,7 +182,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Combos Especiales",
     price: 9500,
     priceFormatted: "$9.500",
-    image: "combo-desayuno-caliente.jpeg",
+    image: "img/combo-desayuno-caliente.jpeg",
     description: "El desayuno perfecto de panadería: 2 panes calientes recién horneados, taza de café con leche o chocolate espumoso y porción de queso fresco.",
     badge: "☕ Desayuno",
     badgeType: "combo",
@@ -195,7 +195,7 @@ const DEFAULT_BAKERY_PRODUCTS = [
     categoryName: "Combos Especiales",
     price: 12000,
     priceFormatted: "$12.000",
-    image: "combo-tarde-dulce.jpeg",
+    image: "img/combo-tarde-dulce.jpeg",
     description: "Una generosa porción de torta a elección acompañada de un café capuchino o jugo natural frío. Ideal para las onces de la tarde.",
     badge: "🍰 Onces",
     badgeType: "combo",
@@ -207,22 +207,31 @@ const DEFAULT_BAKERY_PRODUCTS = [
  * Gestor de almacenamiento en LocalStorage para Dulce Tentación
  */
 const ProductStore = {
+  resolveImage(img) {
+    if (!img) return "img/pan-casero-dorado.jpeg";
+    const clean = String(img).trim();
+    if (clean.startsWith("http://") || clean.startsWith("https://") || clean.startsWith("data:") || clean.startsWith("img/")) {
+      return clean;
+    }
+    return "img/" + clean;
+  },
+
   getAll() {
     try {
       const data = localStorage.getItem(BAKERY_CONFIG.storageKey);
       if (!data) {
         this.saveAll(DEFAULT_BAKERY_PRODUCTS);
-        return [...DEFAULT_BAKERY_PRODUCTS];
+        return DEFAULT_BAKERY_PRODUCTS.map(p => ({ ...p, image: this.resolveImage(p.image) }));
       }
       const parsed = JSON.parse(data);
       if (!Array.isArray(parsed) || parsed.length === 0) {
         this.saveAll(DEFAULT_BAKERY_PRODUCTS);
-        return [...DEFAULT_BAKERY_PRODUCTS];
+        return DEFAULT_BAKERY_PRODUCTS.map(p => ({ ...p, image: this.resolveImage(p.image) }));
       }
-      return parsed;
+      return parsed.map(p => ({ ...p, image: this.resolveImage(p.image) }));
     } catch (e) {
       console.error("Error al leer de localStorage:", e);
-      return [...DEFAULT_BAKERY_PRODUCTS];
+      return DEFAULT_BAKERY_PRODUCTS.map(p => ({ ...p, image: this.resolveImage(p.image) }));
     }
   },
 
@@ -256,6 +265,7 @@ const ProductStore = {
     }
     prodData.priceFormatted = "$" + Number(prodData.price).toLocaleString('es-CO');
     prodData.categoryName = this.getCategoryName(prodData.category);
+    prodData.image = this.resolveImage(prodData.image);
 
     const index = list.findIndex(p => p.id === prodData.id);
     if (index >= 0) {
