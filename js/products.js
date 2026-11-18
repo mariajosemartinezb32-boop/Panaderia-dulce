@@ -1,314 +1,335 @@
 /**
- * Base de datos de productos — Dulce Tentación
- * Panadería & Repostería Artesanal
- * NOTA: Para actualizar el número de WhatsApp o datos del negocio, edita BAKERY_CONFIG al final de este archivo.
+ * Catálogo y Gestor de Productos de Panadería & Repostería
+ * Dulce Tentación — Panadería & Repostería Artesanal (Tocaima, Cundinamarca)
+ * Persistencia en localStorage (100% Frontend - GitHub Pages compatible)
  */
-const BAKERY_PRODUCTS = [
+
+const BAKERY_CONFIG = {
+  name: "Dulce Tentación",
+  subtitle: "Panadería & Repostería Artesanal",
+  whatsappNumber: "573232277831",
+  whatsappDisplay: "+57 323 227 7831",
+  address: "Calle Principal # 12-34, Barrio Central, Tocaima, Cundinamarca",
+  deliveryCost: 4000,
+  minOrder: 10000,
+  currency: "COP",
+  schedule: "Lunes a Domingo: 6:00 AM a 9:30 PM",
+  storageKey: "DULCE_TENTACION_PRODUCTS_V3"
+};
+
+// Catálogo inicial de productos artesanales de panadería y repostería
+const DEFAULT_BAKERY_PRODUCTS = [
   {
     id: "pan-01",
-    name: "Pan Casero Dorado Tradicional",
-    category: "panaderia",
-    categoryName: "Panadería Tradicional",
-    price: 1500,
-    priceFormatted: "$1.500",
+    name: "Pan Casero Tradicional Dorado",
+    category: "panes",
+    categoryName: "Panadería Artesanal",
+    price: 3500,
+    priceFormatted: "$3.500",
     image: "pan-casero-dorado.jpeg",
-    badge: "Más Vendido 🔥",
-    badgeType: "hot",
-    description: "Pan artesanal tradicional horneado diariamente. Corteza dorada y crujiente con miga esponjosa y aroma irresistible. Perfecto para acompañar con café, chocolate o queso.",
-    portions: "1 Unidad grande",
-    rating: 4.9,
-    reviewsCount: 48,
-    isFreshToday: true,
-    tags: ["Pan", "Desayuno", "Artesanal", "Recién Horneado"]
+    description: "Crujiente por fuera y esponjoso por dentro. Elaborado con masa madre tradicional y horneado caliente 3 veces al día.",
+    badge: "🔥 Recién Horneado",
+    badgeType: "fresh",
+    available: true
   },
   {
     id: "pan-02",
-    name: "Paquete de Pan de Queso / Especial x 5",
-    category: "panaderia",
-    categoryName: "Panadería Tradicional",
-    price: 7500,
-    priceFormatted: "$7.500",
+    name: "Pan de Queso Especial (Paquete x6)",
+    category: "panes",
+    categoryName: "Panadería Artesanal",
+    price: 8000,
+    priceFormatted: "$8.000",
     image: "pan-queso-paquete.jpeg",
-    badge: "Horneado Hoy 🥖",
-    badgeType: "fresh",
-    description: "Paquete de 5 unidades de pan con suave queso campesino incorporado. Textura esponjosa, sabor balanceado y sellado para mantener máxima frescura.",
-    portions: "Paquete de 5 unidades",
-    rating: 5.0,
-    reviewsCount: 62,
-    isFreshToday: true,
-    tags: ["Pan de Queso", "Paquete", "Familiar", "Desayuno"]
+    description: "Masa suave enriquecida con abundante queso campesino fresco de la región. Ideal para acompañar el chocolate o café caliente.",
+    badge: "⭐ Favorito",
+    badgeType: "popular",
+    available: true
   },
   {
     id: "pan-03",
-    name: "Surtido Panes Especiales (Vitrina Milenio)",
-    category: "panaderia",
-    categoryName: "Panadería Tradicional",
-    price: 12000,
-    priceFormatted: "$12.000",
+    name: "Pan Integral Multicereal con Semillas",
+    category: "panes",
+    categoryName: "Panadería Artesanal",
+    price: 6500,
+    priceFormatted: "$6.500",
+    image: "pan-integral-semillas.jpeg",
+    description: "100% harina de trigo integral con semillas de chía, linaza, ajonjolí y avena en hojuelas. Saludable, nutritivo y rico en fibra.",
+    badge: "🌿 Saludable",
+    badgeType: "healthy",
+    available: true
+  },
+  {
+    id: "pan-04",
+    name: "Mogolla Campesina de Chicharrón",
+    category: "panes",
+    categoryName: "Panadería Artesanal",
+    price: 2500,
+    priceFormatted: "$2.500",
+    image: "mogolla-campesina.jpeg",
+    description: "La tradicional mogolla de campo con crocantes trocitos de chicharrón tostado. Sabor autóctono y textura inigualable.",
+    badge: "🇨🇴 Tradicional",
+    badgeType: "traditional",
+    available: true
+  },
+  {
+    id: "pan-05",
+    name: "Canasta Surtida de Panes Especiales",
+    category: "panes",
+    categoryName: "Panadería Artesanal",
+    price: 18000,
+    priceFormatted: "$18.000",
     image: "surtido-panes-especiales.jpeg",
-    badge: "Variedad de la Casa ⭐",
-    badgeType: "special",
-    description: "Disfruta de la máxima variedad de nuestra vitrina: panes hojaldrados, panes con semillas de ajonjolí, trenzas dulces, roscas doradas y mogollas campesinas.",
-    portions: "Surtido variado (8 unidades surtidas)",
-    rating: 4.9,
-    reviewsCount: 89,
-    isFreshToday: true,
-    tags: ["Surtido", "Vitrina", "Hojaldre", "Ajonjolí", "Trenza"]
+    description: "Variedad de 10 piezas de nuestros mejores panes dulces y salados: croissant, pan rollo, trenza de queso, pan de bono y mogollas.",
+    badge: "🧺 Para Compartir",
+    badgeType: "combo",
+    available: true
   },
   {
     id: "galleta-01",
-    name: "Galletas Artesanales Estrellitas & Corazones",
+    name: "Galletas Chocochips Crujientes (x4)",
     category: "galletas",
-    categoryName: "Galletas & Repostería",
-    price: 3000,
-    priceFormatted: "$3.000",
-    image: "galletas-decoradas.jpeg",
-    badge: "Favorito Niños 🍪",
-    badgeType: "popular",
-    description: "Crocantes galletas de mantequilla con formas de estrellas y corazones, decoradas con abundante lluvia de granillos de colores. Masa suave y deliciosa.",
-    portions: "Porción de 4 galletas",
-    rating: 4.8,
-    reviewsCount: 54,
-    isFreshToday: true,
-    tags: ["Galletas", "Mantequilla", "Colores", "Merienda"]
+    categoryName: "Galletas & Tradicionales",
+    price: 5000,
+    priceFormatted: "$5.000",
+    image: "galleta-chocochips.jpeg",
+    description: "Galletas artesanales de mantequilla con abundantes chispas de chocolate semiamargo derretidas en cada mordisco.",
+    badge: "🍪 Horneadas Hoy",
+    badgeType: "fresh",
+    available: true
   },
   {
     id: "galleta-02",
-    name: "Polvorones Tradicionales de Fresa con Azúcar Rojo",
+    name: "Galletas de Mantequilla Decoradas (x6)",
     category: "galletas",
-    categoryName: "Galletas & Repostería",
-    price: 2500,
-    priceFormatted: "$2.500",
-    image: "polvorones-rojos.jpeg",
-    badge: "Tradición Milenio ❤️",
-    badgeType: "heritage",
-    description: "Los clásicos polvorones de la casa: masa suave y arenosa con toque de fresa, cubiertos con azúcar cristalizada color rubí que se deshace en el paladar.",
-    portions: "Porción de 2 unidades",
-    rating: 4.9,
-    reviewsCount: 73,
-    isFreshToday: true,
-    tags: ["Polvorones", "Fresa", "Dulce", "Tradicional"]
+    categoryName: "Galletas & Tradicionales",
+    price: 9000,
+    priceFormatted: "$9.000",
+    image: "galletas-decoradas.jpeg",
+    description: "Delicadas galletas artesanales con formas temáticas y glaseado real de colores. Perfectas para un detalle o regalo especial.",
+    badge: "🎁 Detalle Dulce",
+    badgeType: "gift",
+    available: true
   },
   {
     id: "galleta-03",
-    name: "Galleta Chocochips Doble Chocolate",
+    name: "Polvorones Tradicionales Rosados (x6)",
     category: "galletas",
-    categoryName: "Galletas & Repostería",
-    price: 3500,
-    priceFormatted: "$3.500",
-    image: "galleta-chocochips.jpeg",
-    badge: "Nueva 🍫",
-    badgeType: "hot",
-    description: "Galleta americana crocante por fuera y suave por dentro, cargada de chips de chocolate semiamargo y chocolate blanco. Irresistibles.",
-    portions: "Porción de 3 galletas",
-    rating: 4.8,
-    reviewsCount: 30,
-    isFreshToday: true,
-    tags: ["Chocochips", "Americana", "Chocolate", "Snack"]
-  },
-  {
-    id: "postre-01",
-    name: "Torta Húmeda Chocolate Supremo con Cacao",
-    category: "postres",
-    categoryName: "Postres & Tortas",
-    price: 48000,
-    priceFormatted: "$48.000",
-    image: "torta-chocolate-supremo.jpeg",
-    badge: "Recomendado del Chef 🍫",
-    badgeType: "special",
-    description: "Tres pisos de bizcocho extra húmedo de chocolate puro de cacao, capas de crema de ganache suave y coronada con elegantes rulos de chocolate artesanal.",
-    portions: "10 a 12 Porciones (1.2 Kg aprox.)",
-    rating: 5.0,
-    reviewsCount: 110,
-    isFreshToday: true,
-    tags: ["Chocolate", "Torta Húmeda", "Cacao", "Gourmet"]
-  },
-  {
-    id: "postre-02",
-    name: "Torta Frutal Milenium con Cubierta de Nueces",
-    category: "postres",
-    categoryName: "Postres & Tortas",
-    price: 52000,
-    priceFormatted: "$52.000",
-    image: "combo-desayuno-caliente.jpeg",
-    badge: "Frescura Total 🍓",
-    badgeType: "fresh",
-    description: "Torta fresca de vainilla y tres leches decorada con kiwi natural, duraznos en almíbar, fresas maduras, uvas y lateral crujiente con nueces picadas.",
-    portions: "12 a 15 Porciones",
-    rating: 4.9,
-    reviewsCount: 67,
-    isFreshToday: true,
-    tags: ["Frutas", "Kiwi", "Fresas", "Nueces", "Frescura"]
-  },
-  {
-    id: "postre-03",
-    name: "Torta Festiva Celeste Drip con Fresas & Durazno",
-    category: "postres",
-    categoryName: "Postres & Tortas",
-    price: 55000,
-    priceFormatted: "$55.000",
-    image: "torta-tematica.jpeg",
-    badge: "Ideal Celebración 🎉",
-    badgeType: "popular",
-    description: "Delicada crema chantilly color azul cielo con líneas acanaladas, drip de chocolate semiamargo, frutas frescas y topper de Feliz Cumpleaños incluido.",
-    portions: "12 a 15 Porciones",
-    rating: 4.9,
-    reviewsCount: 45,
-    isFreshToday: true,
-    tags: ["Cumpleaños", "Celeste", "Drip Chocolate", "Frutas"]
-  },
-  {
-    id: "postre-04",
-    name: "Torta Glaseada de Frutos Rojos & Merenguitos",
-    category: "postres",
-    categoryName: "Postres & Tortas",
-    price: 46000,
-    priceFormatted: "$46.000",
-    image: "galletas-decoradas.jpeg",
-    badge: "Especial de la Casa ✨",
-    badgeType: "special",
-    description: "Cobertura de mermelada y reducción artesanal de frutos rojos, fresas glaseadas enteras, centro de durazno y suaves merenguitos espolvoreados con canela.",
-    portions: "10 a 12 Porciones",
-    rating: 4.8,
-    reviewsCount: 39,
-    isFreshToday: true,
-    tags: ["Frutos Rojos", "Merengue", "Fresas", "Dulce"]
+    categoryName: "Galletas & Tradicionales",
+    price: 4500,
+    priceFormatted: "$4.500",
+    image: "polvorones-rojos.jpeg",
+    description: "Los clásicos polvorones de panadería con su textura suave y quebradiza que se deshace en la boca, cubiertos de azúcar.",
+    badge: "✨ Clásico",
+    badgeType: "traditional",
+    available: true
   },
   {
     id: "torta-01",
-    name: "Torta Especial Feliz Cumpleaños Mamita T.Q.M.",
-    category: "tortas",
-    categoryName: "Tortas para Celebrar",
-    price: 45000,
-    priceFormatted: "$45.000",
-    image: "galleta-chocochips.jpeg",
-    badge: "Personalizable 💖",
+    name: "Torta Suprema de Chocolate Húmedo",
+    category: "postres",
+    categoryName: "Tortas & Postres",
+    price: 48000,
+    priceFormatted: "$48.000",
+    image: "torta-chocolate-supremo.jpeg",
+    description: "Bizcochuelo intenso de cacao colombiano 70%, relleno de ganache cremosa de chocolate y cubierto con virutas de chocolate suizo.",
+    badge: "🍫 Chocolate 100%",
     badgeType: "popular",
-    description: "Hermosa torta con cubierta roja brillante de fresa, borde festoneado de crema chantilly, fresas frescas en almíbar y mensaje personalizado a tu gusto.",
-    portions: "12 Porciones",
-    rating: 5.0,
-    reviewsCount: 88,
-    isFreshToday: true,
-    tags: ["Cumpleaños", "Mamá", "Personalizado", "Fresas"]
+    available: true
   },
   {
     id: "torta-02",
-    name: "Torta Artesanal de Fresa & Kiwi para Celebrar",
-    category: "tortas",
-    categoryName: "Tortas para Celebrar",
-    price: 44000,
-    priceFormatted: "$44.000",
-    image: "polvorones-rojos.jpeg",
-    badge: "Delicada & Frutal 🍰",
-    badgeType: "fresh",
-    description: "Bizcochuelo extra suave con relleno cremoso, cubierta de coulis de fresa, rodajas de kiwi fresco y dedicatoria personalizada incluida.",
-    portions: "10 a 12 Porciones",
-    rating: 4.8,
-    reviewsCount: 42,
-    isFreshToday: true,
-    tags: ["Kiwi", "Fresa", "Celebración", "Personalizado"]
+    name: "Torta Tres Leches Tradicional Casera",
+    category: "postres",
+    categoryName: "Tortas & Postres",
+    price: 42000,
+    priceFormatted: "$42.000",
+    image: "torta-tres-leches.jpeg",
+    description: "Bizcocho súper húmedo bañado en nuestra salsa secreta de tres leches, coronado con merengue suizo dorado y canela en polvo.",
+    badge: "🥛 Súper Húmeda",
+    badgeType: "popular",
+    available: true
   },
   {
     id: "torta-03",
-    name: "Torta Turquesa Tentación con Melocotón y Frutas",
-    category: "tortas",
-    categoryName: "Tortas para Celebrar",
-    price: 50000,
-    priceFormatted: "$50.000",
+    name: "Torta de Frutos Rojos y Crema Chantilly",
+    category: "postres",
+    categoryName: "Tortas & Postres",
+    price: 46000,
+    priceFormatted: "$46.000",
     image: "torta-frutos-rojos.jpeg",
-    badge: "Edición Especial 🎂",
+    description: "Suave bizcocho de vainilla con mermelada casera de fresas, moras y agraz silvestres, decorada con crema chantilly y frutas frescas.",
+    badge: "🍓 Fruta Natural",
+    badgeType: "fresh",
+    available: true
+  },
+  {
+    id: "torta-04",
+    name: "Torta Temática para Cumpleaños (15 Porciones)",
+    category: "postres",
+    categoryName: "Tortas & Postres",
+    price: 55000,
+    priceFormatted: "$55.000",
+    image: "torta-tematica.jpeg",
+    description: "Diseño personalizado para celebraciones con topper festivo, doble capa de relleno a tu gusto y dedicatoria personalizada.",
+    badge: "🎉 Cumpleaños",
     badgeType: "special",
-    description: "Hermosa presentación turquesa con corona de chocolate escurrido, uvas moradas seleccionadas, melocotón en almíbar y fresas.",
-    portions: "12 Porciones",
-    rating: 4.9,
-    reviewsCount: 51,
-    isFreshToday: true,
-    tags: ["Turquesa", "Chocolate", "Frutas", "Fiesta"]
-  },
-  {
-    id: "torta-tematica-01",
-    name: "Torta Temática Personalizada TikTok",
-    category: "tortas",
-    categoryName: "Tortas para Celebrar",
-    price: 65000,
-    priceFormatted: "$65.000",
-    image: "torta-tres-leches.jpeg",
-    badge: "Temática Juvenil 📱",
-    badgeType: "hot",
-    description: "Torta cuadrada temática TikTok con audífonos 3D, autito de juguete, logotipos de TikTok comestibles y dedicatoria con nombre y edad del cumpleañero/a.",
-    portions: "18 a 20 Porciones",
-    rating: 5.0,
-    reviewsCount: 36,
-    isFreshToday: true,
-    tags: ["TikTok", "Temática", "Juvenil", "Cumpleaños"]
-  },
-  {
-    id: "torta-tematica-02",
-    name: "Dúo de Tortas Unicornio Fantasía & Rosetones",
-    category: "tortas",
-    categoryName: "Tortas para Celebrar",
-    price: 68000,
-    priceFormatted: "$68.000",
-    image: "mogolla-campesina.jpeg",
-    badge: "Temática Infantil 🦄",
-    badgeType: "popular",
-    description: "Set de 2 tortas infantiles: Torta principal Unicornio con cono dorado, orejitas y rosetones pastel azul/rosa + Torta complementaria a juego.",
-    portions: "20 a 24 Porciones (2 Tortas)",
-    rating: 5.0,
-    reviewsCount: 49,
-    isFreshToday: true,
-    tags: ["Unicornio", "Infantil", "Pastel", "Dúo Tortas"]
+    available: true
   },
   {
     id: "combo-01",
-    name: "Combo Desayuno Milenio Tradicional",
+    name: "Combo Desayuno Caliente (Pan + Café + Queso)",
     category: "combos",
-    categoryName: "Combos & Promociones",
-    price: 8500,
-    priceFormatted: "$8.500",
-    image: "pan-casero-dorado.jpeg",
-    badge: "Ahorro del Día ☕",
-    badgeType: "hot",
-    description: "Incluye: 2 Panes caseros calientes dorados + 1 Café con Leche o Chocolate Caliente Espumoso + 2 Galletas decoradas.",
-    portions: "Para 1 o 2 personas",
-    rating: 4.9,
-    reviewsCount: 95,
-    isFreshToday: true,
-    tags: ["Combo", "Desayuno", "Café", "Pan Caliente"]
+    categoryName: "Combos Especiales",
+    price: 9500,
+    priceFormatted: "$9.500",
+    image: "combo-desayuno-caliente.jpeg",
+    description: "El desayuno perfecto de panadería: 2 panes calientes recién horneados, taza de café con leche o chocolate espumoso y porción de queso fresco.",
+    badge: "☕ Desayuno",
+    badgeType: "combo",
+    available: true
   },
   {
     id: "combo-02",
-    name: "Combo Merienda Dulce de la Tarde",
+    name: "Combo Tarde Dulce (Porción de Torta + Bebida)",
     category: "combos",
-    categoryName: "Combos & Promociones",
-    price: 11000,
-    priceFormatted: "$11.000",
+    categoryName: "Combos Especiales",
+    price: 12000,
+    priceFormatted: "$12.000",
     image: "combo-tarde-dulce.jpeg",
-    badge: "Favorito Tarde 🍰",
-    badgeType: "popular",
-    description: "Incluye: 1 Porción generosa de Torta de Chocolate Supremo o Frutos Rojos + 1 Polvorón tradicional de fresa + 1 Bebida fría o caliente.",
-    portions: "Para 1 persona",
-    rating: 5.0,
-    reviewsCount: 81,
-    isFreshToday: true,
-    tags: ["Combo", "Torta", "Polvorón", "Merienda"]
+    description: "Una generosa porción de torta a elección acompañada de un café capuchino o jugo natural frío. Ideal para las onces de la tarde.",
+    badge: "🍰 Onces",
+    badgeType: "combo",
+    available: true
   }
 ];
 
-// ============================================================
-// CONFIGURACIÓN GENERAL — Editar con los datos reales del negocio
-// ============================================================
-const BAKERY_CONFIG = {
-  name: "Dulce Tentación",
-  slogan: "El auténtico sabor tradicional y los postres más deliciosos, horneados con amor",
-  phone: "+57 323 2277831",
-  whatsappNumber: "573232277831",
-  // ⚠️ REEMPLAZAR con la dirección real de la panadería
-  address: "Calle Principal # 12-34, Barrio Central",
-  city: "Colombia",
-  hours: "Lunes a Domingo: 6:00 AM - 9:30 PM",
-  freshSchedule: "Horneadas calientes a las: 6:30 AM, 11:30 AM y 4:30 PM",
-  currency: "COP",
-  currencySymbol: "$",
-  deliveryCost: 4000
+/**
+ * Gestor de almacenamiento en LocalStorage para Dulce Tentación
+ */
+const ProductStore = {
+  getAll() {
+    try {
+      const data = localStorage.getItem(BAKERY_CONFIG.storageKey);
+      if (!data) {
+        this.saveAll(DEFAULT_BAKERY_PRODUCTS);
+        return [...DEFAULT_BAKERY_PRODUCTS];
+      }
+      const parsed = JSON.parse(data);
+      if (!Array.isArray(parsed) || parsed.length === 0) {
+        this.saveAll(DEFAULT_BAKERY_PRODUCTS);
+        return [...DEFAULT_BAKERY_PRODUCTS];
+      }
+      return parsed;
+    } catch (e) {
+      console.error("Error al leer de localStorage:", e);
+      return [...DEFAULT_BAKERY_PRODUCTS];
+    }
+  },
+
+  saveAll(products) {
+    try {
+      localStorage.setItem(BAKERY_CONFIG.storageKey, JSON.stringify(products));
+      window.BAKERY_PRODUCTS = products;
+      return true;
+    } catch (e) {
+      console.error("Error al guardar en localStorage:", e);
+      return false;
+    }
+  },
+
+  getById(id) {
+    const list = this.getAll();
+    return list.find(p => p.id === id) || null;
+  },
+
+  saveProduct(prodData) {
+    const list = this.getAll();
+    let isNew = false;
+
+    if (!prodData.id) {
+      prodData.id = "prod-" + Date.now().toString(36) + Math.random().toString(36).substr(2, 3);
+      isNew = true;
+    }
+
+    if (typeof prodData.price === 'string') {
+      prodData.price = parseFloat(prodData.price.replace(/[^0-9]/g, '')) || 0;
+    }
+    prodData.priceFormatted = "$" + Number(prodData.price).toLocaleString('es-CO');
+    prodData.categoryName = this.getCategoryName(prodData.category);
+
+    const index = list.findIndex(p => p.id === prodData.id);
+    if (index >= 0) {
+      list[index] = { ...list[index], ...prodData, updatedAt: new Date().toISOString() };
+    } else {
+      list.unshift(prodData);
+    }
+
+    this.saveAll(list);
+    return { success: true, product: prodData, isNew };
+  },
+
+  deleteProduct(id) {
+    const list = this.getAll();
+    const filtered = list.filter(p => p.id !== id);
+    if (filtered.length !== list.length) {
+      this.saveAll(filtered);
+      return true;
+    }
+    return false;
+  },
+
+  updateAvailability(id, isAvailable) {
+    const list = this.getAll();
+    const item = list.find(p => p.id === id);
+    if (item) {
+      item.available = Boolean(isAvailable);
+      this.saveAll(list);
+      return true;
+    }
+    return false;
+  },
+
+  resetToDefaults() {
+    this.saveAll(DEFAULT_BAKERY_PRODUCTS);
+    return [...DEFAULT_BAKERY_PRODUCTS];
+  },
+
+  exportJSON() {
+    const data = this.getAll();
+    const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", str);
+    downloadAnchor.setAttribute("download", `dulce_tentacion_productos_${new Date().toISOString().split('T')[0]}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+  },
+
+  importJSON(jsonString) {
+    try {
+      const parsed = JSON.parse(jsonString);
+      if (!Array.isArray(parsed)) {
+        throw new Error("El archivo no contiene un catálogo válido de productos.");
+      }
+      this.saveAll(parsed);
+      return { success: true, count: parsed.length };
+    } catch (err) {
+      return { success: false, error: err.message };
+    }
+  },
+
+  getCategoryName(catKey) {
+    const map = {
+      panes: "Panadería Artesanal",
+      postres: "Tortas & Postres",
+      galletas: "Galletas & Tradicionales",
+      combos: "Combos Especiales"
+    };
+    return map[catKey] || "Especialidad";
+  }
 };
+
+// Sincronizar catálogo global con cart.js y pos.js
+window.BAKERY_PRODUCTS = ProductStore.getAll();
+window.BAKERY_CONFIG = BAKERY_CONFIG;
+window.ProductStore = ProductStore;

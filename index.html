@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dulce Tentación | Panadería & Repostería Artesanal — Pan y Postres</title>
-  <meta name="description" content="Venta de panes artesanales recién horneados, deliciosas galletas, postres gourmet y tortas personalizadas para toda ocasión en Dulce Tentación. ¡Pide fácil por WhatsApp!">
-  <meta name="keywords" content="dulce tentacion, panaderia, reposteria, venta de pan, tortas de cumpleaños, postres, galletas, pan caliente, domicilios">
+  <meta name="description" content="Venta de panes artesanales recién horneados, deliciosas galletas, postres gourmet y tortas personalizadas para toda ocasión en Dulce Tentación en Tocaima, Cundinamarca. ¡Pide fácil por WhatsApp!">
+  <meta name="keywords" content="dulce tentacion, panaderia, reposteria, venta de pan, tortas de cumpleaños, postres, galletas, pan caliente, domicilios tocaima">
   <meta property="og:title" content="Dulce Tentación | Panadería & Repostería Artesanal">
   <meta property="og:description" content="El auténtico sabor tradicional y los postres más deliciosos, horneados con amor. Pedidos a domicilio y por encargo.">
   <meta property="og:type" content="website">
@@ -18,6 +18,7 @@
   <!-- Preconnect Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
@@ -28,23 +29,48 @@
   <aside class="top-announcement-bar">
     <div class="container announcement-inner">
       <div id="bakery-status-badge" class="status-indicator">
-        <span class="status-dot dot-green"></span>
+        <span class="status-dot secret-admin-trigger" id="secret-admin-status-dot" title="Abierto"></span>
         <strong>Abierto Ahora:</strong> Horneando panes frescos hasta las 9:30 PM
       </div>
       <div>
         <span>🔥 Horneadas calientes: <strong>6:30 AM</strong> | <strong>11:30 AM</strong> | <strong>4:30 PM</strong></span>
       </div>
       <div>
-        <span>🛵 Domicilios y Encargos WhatsApp: <strong>+57 312 345 6789</strong></span>
+        <span>📍 <strong>Tocaima, Cundinamarca</strong> — Calle Principal # 12-34</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span>🛵 Domicilios WhatsApp: <strong>+57 323 227 7831</strong></span>
+        <span class="secret-admin-trigger" id="secret-top-dot" title="" style="cursor: default; opacity: 0.15; user-select: none;">•</span>
       </div>
     </div>
   </aside>
+
+  <!-- Barra de Sesión de Administrador activa (Visible solo tras iniciar sesión) -->
+  <div id="admin-session-bar" class="admin-session-bar" style="display: none;">
+    <div class="container admin-session-inner">
+      <div class="admin-session-status">
+        <span style="font-size: 1.1rem;">🛡️</span>
+        <span>Panel Administrador Activo: <strong id="admin-logged-email">dannavalentinaarias24@gmail.com</strong></span>
+      </div>
+      <div class="admin-session-actions">
+        <button type="button" class="btn-admin-bar-btn btn-admin-bar-dash" onclick="AdminUI.openDashboardModal()">
+          ⚙️ Gestionar Productos
+        </button>
+        <button type="button" class="btn-admin-bar-btn btn-admin-bar-dash" onclick="AdminUI.openEditorForNew()" style="background: var(--fresh-green);">
+          ➕ Agregar Producto
+        </button>
+        <button type="button" class="btn-admin-bar-btn btn-admin-bar-logout" id="btn-admin-logout">
+          🚪 Cerrar Sesión
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Encabezado Principal -->
   <header class="site-header">
     <div class="container navbar">
       <a href="#inicio" class="brand-logo-link">
-        <div class="brand-badge-icon">🥖</div>
+        <div class="brand-badge-icon secret-admin-trigger" id="secret-admin-logo" title="">🥖</div>
         <div class="brand-titles">
           <span class="brand-main-title">Dulce Tentación</span>
           <span class="brand-subtitle">Panadería & Repostería Artesanal</span>
@@ -85,8 +111,8 @@
     <div class="container hero-grid">
       <div class="hero-text-col">
         <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          <span>✨ Tradición & Calidad desde el año 2000</span>
+          <span class="hero-tag-dot secret-admin-trigger" id="secret-admin-hero-dot" style="cursor: default;" title=""></span>
+          <span>✨ Tradición & Calidad en Tocaima, Cundinamarca</span>
         </div>
         <h1 class="hero-title">
           El aroma y sabor del <span class="hero-title-highlight">pan recién horneado</span> en tu mesa.
@@ -96,13 +122,13 @@
         </p>
 
         <div class="hero-cta-group">
-          <a href="#catalogo" class="btn btn-primary btn-hero-main">
+          <a href="#catalogo" class="btn btn-primary">
             <span>🥖 Ver Menú & Pedir</span>
           </a>
           <a href="https://api.whatsapp.com/send?phone=573232277831&text=Hola!%20Deseo%20hacer%20un%20pedido%20en%20Dulce%20Tentaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-whatsapp">
             <span>💬 WhatsApp Directo</span>
           </a>
-          <a href="#tortas-personalizadas" class="btn btn-outline">
+          <a href="#tortas-personalizadas" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.3);">
             <span>🎂 Cotizar Torta</span>
           </a>
         </div>
@@ -129,19 +155,13 @@
 
       <div class="hero-visual-col">
         <div class="hero-visual-card">
-          <div class="hero-main-img-wrap">
-            <img src="surtido-panes-especiales.jpeg" alt="Vitrina de Panes de Dulce Tentación" class="hero-showcase-img">
-            <div class="hero-img-shine"></div>
-          </div>
+          <img src="surtido-panes-especiales.jpeg" alt="Vitrina de Panes de Dulce Tentación" class="hero-showcase-img">
           <div class="hero-floating-pill">
-            <div class="pill-icon">🥐</div>
+            <div style="font-size: 1.5rem;">🥐</div>
             <div>
               <h4>¡Vitrina Siempre Surtida!</h4>
-              <p>Panes hojaldrados, quesos y dulces</p>
+              <p>Panes hojaldrados, quesos, galletas y postres</p>
             </div>
-          </div>
-          <div class="hero-floating-badge-fresh">
-            🔥 Recién horneado hoy
           </div>
         </div>
       </div>
@@ -162,7 +182,7 @@
         <div class="feat-icon-bubble">🛵</div>
         <div class="feat-text">
           <h4>Domicilios Rápidos</h4>
-          <p>Llevamos tu pedido fresco a casa</p>
+          <p>Llevamos tu pedido fresco a casa en Tocaima</p>
         </div>
       </div>
       <div class="feature-box">
@@ -337,7 +357,7 @@
               <div class="form-row-dual">
                 <div>
                   <label for="cake_theme" class="form-step-label">Temática o motivo:</label>
-                  <input type="text" id="cake_theme" class="form-input" placeholder="Ej: TikTok, Unicornio, Flores, Elegante...">
+                  <input type="text" id="cake_theme" class="form-input" placeholder="Ej: Cumpleaños, Flores, Infantil...">
                 </div>
                 <div>
                   <label for="cake_dedication" class="form-step-label">Mensaje en la torta:</label>
@@ -362,10 +382,10 @@
 
             <div class="form-step-group">
               <label for="cake_notes" class="form-step-label">Comentarios o detalles especiales:</label>
-              <textarea id="cake_notes" rows="2" class="form-textarea" placeholder="Indícanos colores preferidos, si tienes foto de referencia o alergias..."></textarea>
+              <textarea id="cake_notes" rows="2" class="form-textarea" placeholder="Indícanos colores preferidos o detalles adicionales..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 16px; font-size: 1rem;">
+            <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 14px; font-size: 1rem;">
               <span>💬 Enviar Cotización por WhatsApp</span>
             </button>
           </form>
@@ -380,11 +400,30 @@
       <div class="section-header">
         <span class="section-subtag">Clientes Felices</span>
         <h2 class="section-title">Lo que Dicen de Nosotros</h2>
-        <p class="section-lead">La satisfacción y la sonrisa de nuestras familias son nuestro mayor orgullo.</p>
+        <p class="section-lead">La satisfacción y la sonrisa de nuestras familias en Tocaima son nuestro mayor orgullo.</p>
       </div>
 
-      <div class="reviews-grid" id="reviews-carousel">
-        <!-- Renderizado dinámico vía JavaScript -->
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"El pan caliente de las 4:30 PM es el mejor de todo Tocaima. Suave, doradito y el de queso es delicioso. Los domicilios siempre llegan calientes."</p>
+          <div class="review-author">Martha Lucía Gómez</div>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Tocaima, Cundinamarca</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Mandé a hacer la torta de cumpleaños de mi hijo con diseño temático de chocolate supremo y quedó espectacular. A todos los invitados les encantó."</p>
+          <div class="review-author">Carlos Eduardo Peña</div>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Cliente Frecuente</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Las galletas decoradas y los polvorones rosados son una delicia tradicional que ya no se encuentra en cualquier panadería. Calidad garantizada."</p>
+          <div class="review-author">Gloria Esperanza Rojas</div>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Vecina del Barrio Central</span>
+        </div>
       </div>
     </div>
   </section>
@@ -393,103 +432,117 @@
   <section id="contacto" class="contact-section">
     <div class="container contact-grid">
       <div class="contact-info">
-        <h2>Visítanos en el Local</h2>
-        <p>Siente el aroma del pan recién salido del horno y acompáñalo con un buen café caliente o lleva los postres más ricos para tu hogar.</p>
+        <span class="section-subtag">Visítanos en Tocaima</span>
+        <h2 style="font-size: 2.2rem; margin: 8px 0;">Visítanos en el Local</h2>
+        <p style="color: var(--text-muted); margin-bottom: 20px;">Siente el aroma del pan recién salido del horno y acompáñalo con un buen café caliente o lleva los postres más ricos para tu hogar.</p>
 
         <div class="contact-details-list">
           <div class="contact-item">
             <div class="contact-item-icon">📍</div>
-            <div class="contact-item-text">
+            <div>
               <strong>Dirección Principal:</strong>
-              <span>Calle Principal # 12-34, Barrio Central</span>
+              <p style="color: var(--text-muted); font-size: 0.88rem;">Calle Principal # 12-34, Barrio Central, Tocaima, Cundinamarca</p>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon">⏰</div>
-            <div class="contact-item-text">
+            <div>
               <strong>Horarios de Atención:</strong>
-              <span>Lunes a Domingo: 6:00 AM a 9:30 PM (Jornada Continua)</span>
+              <p style="color: var(--text-muted); font-size: 0.88rem;">Lunes a Domingo: 6:00 AM a 9:30 PM (Jornada Continua)</p>
             </div>
           </div>
           <div class="contact-item">
             <div class="contact-item-icon">📞</div>
-            <div class="contact-item-text">
+            <div>
               <strong>Teléfono & Pedidos:</strong>
-              <span>+57 312 345 6789 / Domicilios en todo el sector</span>
+              <p style="color: var(--text-muted); font-size: 0.88rem;">+57 323 227 7831 / Domicilios en todo Tocaima</p>
             </div>
           </div>
         </div>
 
-        <a href="https://api.whatsapp.com/send?phone=573232277831&text=Hola!%20Deseo%20hacer%20una%20consulta%20a%20Dulce%20Tentaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-whatsapp">
-          <span>💬 Chatear con la Panadería</span>
-        </a>
+        <div style="margin-top: 15px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15911.393437500355!2d-74.6468!3d4.4533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f28e24c251bb7%3A0xcb22d1264b38d6b!2sTocaima%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
+            width="100%" 
+            height="220" 
+            style="border:0; border-radius: 10px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa Tocaima Cundinamarca">
+          </iframe>
+        </div>
       </div>
 
       <div class="contact-showcase-box">
-        <h3>🥖 Dulce Tentación</h3>
-        <p>El punto de encuentro tradicional de las familias para el desayuno, las onces y los momentos dulces.</p>
-        <img src="pan-casero-dorado.jpeg" alt="Pan Artesanal Dorado" style="max-height: 200px; margin: 0 auto 16px; border-radius: 12px;">
-        <span style="font-size: 0.85rem; color: #fce0a2;">¡Te esperamos con los brazos abiertos!</span>
+        <h3 style="color: var(--cocoa-dark); margin-bottom: 8px;">🥖 Dulce Tentación</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">El punto de encuentro tradicional de las familias para el desayuno, las onces y los momentos dulces.</p>
+        <img src="pan-casero-dorado.jpeg" alt="Pan Artesanal Dorado" style="max-height: 200px; margin: 0 auto 16px; border-radius: 12px; object-fit: cover;">
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-gold);">¡Te esperamos con los brazos abiertos en Tocaima!</span>
       </div>
     </div>
   </section>
 
-  <!-- Pie de Página mejorado -->
+  <!-- Pie de Página -->
   <footer class="site-footer">
-    <div class="footer-top">
-      <div class="container footer-top-grid">
-        <div class="footer-brand-col">
-          <div class="footer-logo">
-            <div class="brand-badge-icon" style="width:48px;height:48px;font-size:1.4rem;">🥖</div>
-            <div>
-              <strong>Dulce Tentación</strong>
-              <span>Panadería & Repostería Artesanal</span>
-            </div>
-          </div>
-          <p class="footer-tagline">Horneando felicidad desde el año 2000. Tradición, sabor y calidad en cada producto.</p>
-          <div class="footer-social-links">
-            <a href="https://api.whatsapp.com/send?phone=573232277831" target="_blank" rel="noopener" class="social-btn whatsapp" title="WhatsApp">💬</a>
-            <a href="#" class="social-btn instagram" title="Instagram">📸</a>
-            <a href="#" class="social-btn facebook" title="Facebook">👍</a>
+    <div class="container footer-top-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <div class="brand-badge-icon" style="width:44px;height:44px;font-size:1.4rem;">🥖</div>
+          <div>
+            <strong>Dulce Tentación</strong><br>
+            <span style="font-size: 0.75rem; color: #ffd8a8;">Panadería & Repostería Artesanal</span>
           </div>
         </div>
-        <div class="footer-links-col">
-          <h5>Navegación</h5>
-          <ul>
-            <li><a href="#inicio">🏠 Inicio</a></li>
-            <li><a href="#catalogo">🥖 Catálogo & Menú</a></li>
-            <li><a href="#tortas-personalizadas">🎂 Tortas por Encargo</a></li>
-            <li><a href="#testimonios">⭐ Opiniones</a></li>
-            <li><a href="#contacto">📍 Ubicación & Horarios</a></li>
-          </ul>
+        <p style="font-size: 0.85rem; color: #eddccb; margin-bottom: 16px;">Horneando felicidad y tradición en Tocaima, Cundinamarca. Sabor auténtico y calidad en cada bocado.</p>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://api.whatsapp.com/send?phone=573232277831" target="_blank" rel="noopener" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.82rem;">
+            💬 WhatsApp Panadería
+          </a>
         </div>
-        <div class="footer-info-col">
-          <h5>Contacto</h5>
-          <ul>
-            <li>📍 Calle Principal # 12-34, Barrio Central</li>
-            <li>📞 +57 300 123 4567</li>
-            <li>⏰ Lun–Dom: 6:00 AM – 9:30 PM</li>
-            <li>🔥 Horneos: 6:30 AM | 11:30 AM | 4:30 PM</li>
-          </ul>
-          <div style="margin-top: 15px;">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15911.393437500355!2d-74.6468!3d4.4533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f28e24c251bb7%3A0xcb22d1264b38d6b!2sTocaima%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
-              width="100%" 
-              height="200" 
-              style="border:0; border-radius: 8px;" 
-              allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-          </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h5 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Navegación</h5>
+        <ul>
+          <li><a href="#inicio">🏠 Inicio</a></li>
+          <li><a href="#catalogo">🥖 Catálogo & Menú</a></li>
+          <li><a href="#tortas-personalizadas">🎂 Tortas por Encargo</a></li>
+          <li><a href="#testimonios">⭐ Opiniones</a></li>
+          <li><a href="#contacto">📍 Ubicación & Horarios</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-info-col">
+        <h5 style="color: #fff; font-size: 1rem; margin-bottom: 14px;">Contacto & Ubicación</h5>
+        <ul>
+          <li>📍 Calle Principal # 12-34, Tocaima, Cundinamarca</li>
+          <li>📞 Teléfono: +57 323 227 7831</li>
+          <li>⏰ Lun–Dom: 6:00 AM – 9:30 PM</li>
+          <li>🔥 Horneos: 6:30 AM | 11:30 AM | 4:30 PM</li>
+        </ul>
+        <div style="margin-top: 12px; border-radius: 8px; overflow: hidden; height: 110px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15911.393437500355!2d-74.6468!3d4.4533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f28e24c251bb7%3A0xcb22d1264b38d6b!2sTocaima%2C%20Cundinamarca!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Mapa Footer Tocaima">
+          </iframe>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container footer-inner">
-        <p>© 2026 Dulce Tentación — Panadería & Repostería Artesanal. Todos los derechos reservados.</p>
-        <p>Hecho con ❤️ para los amantes del buen pan 🥖🍰</p>
-      </div>
+
+    <!-- Texto de Copyright con Disparador Secreto Oculto -->
+    <div class="container footer-bottom">
+      <p>
+        <span id="secret-admin-trigger" class="secret-admin-trigger" title="©">©</span> 2026 Dulce Tentación — Panadería & Repostería Artesanal. Todos los derechos reservados. 
+        <span id="secret-admin-dot" class="secret-admin-trigger" title="">•</span>
+      </p>
+      <p style="margin-top: 4px; color: #a89a91;">Hecho con ❤️ para los amantes del buen pan y los postres en Tocaima 🥖🍰</p>
     </div>
   </footer>
 
@@ -504,14 +557,13 @@
     <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
-    <span class="whatsapp-tooltip">¡Escríbenos!</span>
   </a>
 
   <!-- Backdrop y Drawer de Carrito -->
   <div class="cart-backdrop" id="cart-backdrop"></div>
   <aside class="cart-drawer" id="cart-drawer">
     <div class="cart-drawer-header">
-      <h3><span>🧺</span> Tu Canasta de Panes & Postres</h3>
+      <h3 style="font-size: 1.15rem; color: var(--cocoa-dark);"><span>🧺</span> Tu Canasta de Panes & Postres</h3>
       <button type="button" class="btn-close-drawer" id="close-cart-btn" aria-label="Cerrar canasta">✕</button>
     </div>
 
@@ -541,46 +593,36 @@
     </div>
   </aside>
 
-  <!-- Modal Detalle de Producto -->
-  <div class="modal-overlay" id="product-detail-modal">
-    <div class="modal-card">
-      <button type="button" class="modal-close-btn" onclick="closeProductModal()" aria-label="Cerrar modal">✕</button>
-      <div id="product-modal-content">
-        <!-- Contenido dinámico -->
-      </div>
-    </div>
-  </div>
-
   <!-- Modal Checkout / Finalizar Pedido -->
   <div class="modal-overlay" id="checkout-modal">
     <div class="modal-card checkout-modal-card">
       <button type="button" class="modal-close-btn" id="close-checkout-btn" aria-label="Cerrar">✕</button>
       
-      <div class="checkout-modal-header">
+      <div style="text-align: center; margin-bottom: 20px;">
         <span style="font-size: 2rem;">🛍️</span>
-        <h3>Finalizar Pedido</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">Revisa tu resumen y elige la forma de entrega.</p>
+        <h3 style="font-size: 1.4rem; color: var(--cocoa-dark);">Finalizar Pedido</h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem;">Revisa tu resumen y elige la forma de entrega en Tocaima.</p>
       </div>
 
-      <div id="checkout-order-summary" class="checkout-order-summary">
+      <div id="checkout-order-summary">
         <!-- Resumen dinámico -->
       </div>
 
       <form id="checkout-form">
         <!-- Selección de Entrega -->
-        <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem;">Modalidad de Entrega:</label>
+        <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; color: var(--cocoa-dark);">Modalidad de Entrega:</label>
         <div class="delivery-toggle-grid">
           <label class="delivery-toggle-card">
             <input type="radio" name="delivery_option" value="delivery" checked>
             <div style="font-size: 1.3rem; margin-bottom: 2px;">🛵</div>
             <strong>A Domicilio</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">+$4.000 COP</p>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">+$4.000 COP (Tocaima)</p>
           </label>
           <label class="delivery-toggle-card">
             <input type="radio" name="delivery_option" value="pickup">
             <div style="font-size: 1.3rem; margin-bottom: 2px;">🏬</div>
             <strong>Recoger en Tienda</strong>
-            <p style="font-size: 0.75rem; color: var(--text-muted);">Sin costo adicional</p>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Calle Principal # 12-34</p>
           </label>
         </div>
 
@@ -588,17 +630,17 @@
         <div id="delivery-address-fields">
           <div class="form-step-group">
             <label for="cust_address" style="font-size: 0.85rem; font-weight: 600;">Dirección de Entrega:</label>
-            <input type="text" id="cust_address" name="cust_address" class="form-input" placeholder="Ej: Carrera 15 # 45-20, Apto 302">
+            <input type="text" id="cust_address" class="form-input" placeholder="Ej: Calle 5 # 8-20, Barrio Central">
           </div>
           <div class="form-step-group">
             <div class="form-row-dual">
               <div>
                 <label for="cust_neighborhood" style="font-size: 0.85rem; font-weight: 600;">Barrio / Sector:</label>
-                <input type="text" id="cust_neighborhood" name="cust_neighborhood" class="form-input" placeholder="Ej: Las Palmas">
+                <input type="text" id="cust_neighborhood" class="form-input" placeholder="Ej: San Antonio">
               </div>
               <div>
                 <label for="cust_reference" style="font-size: 0.85rem; font-weight: 600;">Punto de referencia:</label>
-                <input type="text" id="cust_reference" name="cust_reference" class="form-input" placeholder="Ej: Frente al parque">
+                <input type="text" id="cust_reference" class="form-input" placeholder="Ej: Frente al parque">
               </div>
             </div>
           </div>
@@ -606,9 +648,9 @@
 
         <!-- Campos para Recoger en tienda -->
         <div id="pickup-info-fields" style="display: none; background: #fff8eb; padding: 12px; border-radius: 8px; margin-bottom: 16px; border: 1px dashed var(--primary-gold);">
-          <p style="font-size: 0.85rem; color: var(--cocoa-dark);">📍 <strong>Dirección de Retiro:</strong> Calle Principal # 12-34, Dulce Tentación.</p>
+          <p style="font-size: 0.85rem; color: var(--cocoa-dark);">📍 <strong>Dirección de Retiro:</strong> Calle Principal # 12-34, Dulce Tentación, Tocaima.</p>
           <label for="cust_pickuptime" style="display: block; font-size: 0.82rem; margin-top: 8px;"><strong>¿A qué hora aproximada pasarás?:</strong></label>
-          <input type="time" id="cust_pickuptime" name="cust_pickuptime" class="form-input" style="padding: 8px;">
+          <input type="time" id="cust_pickuptime" class="form-input" style="padding: 8px;">
         </div>
 
         <!-- Datos del Cliente -->
@@ -616,11 +658,11 @@
           <div class="form-row-dual">
             <div>
               <label for="cust_name" style="font-size: 0.85rem; font-weight: 600;">Tu Nombre Completo:*</label>
-              <input type="text" id="cust_name" name="cust_name" required class="form-input" placeholder="Ej: Carlos Ramírez">
+              <input type="text" id="cust_name" required class="form-input" placeholder="Ej: Andrea Gómez">
             </div>
             <div>
               <label for="cust_phone" style="font-size: 0.85rem; font-weight: 600;">Teléfono de Contacto:*</label>
-              <input type="tel" id="cust_phone" name="cust_phone" required class="form-input" placeholder="Ej: 3123456789">
+              <input type="tel" id="cust_phone" required class="form-input" placeholder="Ej: 3232277831">
             </div>
           </div>
         </div>
@@ -638,23 +680,23 @@
               <span>📱 Nequi / Daviplata</span>
             </label>
             <label class="option-pill-label">
-              <input type="radio" name="payment_method" value="Transferencia / Tarjeta">
-              <span>💳 Datáfono / Tarjeta</span>
+              <input type="radio" name="payment_method" value="Datáfono / Tarjeta">
+              <span>💳 Tarjeta</span>
             </label>
           </div>
         </div>
 
         <div class="form-step-group">
           <label for="cust_cash_amount" style="font-size: 0.82rem; color: var(--text-muted);">Si pagas en efectivo, ¿con cuánto billete pagas? (Para llevarte cambio):</label>
-          <input type="number" id="cust_cash_amount" name="cust_cash_amount" class="form-input" placeholder="Ej: 20000 o 50000">
+          <input type="number" id="cust_cash_amount" class="form-input" placeholder="Ej: 20000 o 50000">
         </div>
 
         <div class="form-step-group">
-          <label for="cust_general_notes" style="font-size: 0.82rem;">Notas adicionales para la entrega:</label>
-          <input type="text" id="cust_general_notes" name="cust_general_notes" class="form-input" placeholder="Ej: Tocar el timbre blanco, llamar al llegar...">
+          <label for="cust_general_notes" style="font-size: 0.82rem;">Notas adicionales para la panadería:</label>
+          <input type="text" id="cust_general_notes" class="form-input" placeholder="Ej: Pan caliente bien tostado, tocar el timbre...">
         </div>
 
-        <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 16px; font-size: 1.05rem;">
+        <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 15px; font-size: 1.05rem;">
           <span>💬 Enviar Pedido a WhatsApp de la Panadería</span>
         </button>
       </form>
@@ -665,19 +707,17 @@
   <div class="modal-overlay" id="pos-modal">
     <div class="modal-card pos-modal-card">
       <div class="pos-modal-header">
-        <div class="pos-header-title">
+        <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 1.4rem;">💼</span>
-          <h3>Cajero POS - Ventas de Mostrador</h3>
+          <h3 style="color: #fff; font-size: 1.2rem;">Cajero POS - Ventas de Mostrador</h3>
         </div>
-        <button type="button" class="btn-close-drawer" id="close-pos-btn" style="color: white; background: rgba(255,255,255,0.15);" aria-label="Cerrar">✕</button>
+        <button type="button" class="btn-close-drawer" id="close-pos-btn" style="position: static; color: white; background: rgba(255,255,255,0.15);" aria-label="Cerrar">✕</button>
       </div>
 
       <div class="pos-layout-body">
         <!-- Panel Izquierdo: Selección rápida de productos -->
         <div class="pos-catalog-panel">
-          <div class="pos-search-bar">
-            <input type="text" id="pos-search-product" class="form-input" placeholder="🔍 Filtrar pan, torta o galleta en mostrador...">
-          </div>
+          <input type="text" id="pos-search-product" class="form-input" placeholder="🔍 Filtrar pan, torta o galleta en mostrador...">
           <div class="pos-items-grid" id="pos-items-grid">
             <!-- Botones de productos cargados por JS -->
           </div>
@@ -685,22 +725,22 @@
 
         <!-- Panel Derecho: Canasta de Venta y Cobro -->
         <div class="pos-cashier-panel">
-          <h4 style="margin-bottom: 10px; font-size: 1.05rem;">🧾 Venta Actual</h4>
+          <h4 style="margin-bottom: 8px; font-size: 1rem; color: var(--cocoa-dark);">🧾 Venta Actual</h4>
           
           <div class="pos-cart-list" id="pos-cart-list">
             <!-- Items de la venta -->
           </div>
 
           <div class="pos-total-display">
-            <span>TOTAL VENTA:</span>
+            <span style="font-weight: 700;">TOTAL VENTA:</span>
             <strong id="pos-total-amount">$0</strong>
           </div>
 
           <div class="pos-payment-actions">
-            <div class="form-row-dual">
+            <div class="form-row-dual" style="margin-bottom: 8px;">
               <div>
                 <label style="font-size: 0.78rem; font-weight: 700;">Método:</label>
-                <select id="pos-payment-method" class="form-select">
+                <select id="pos-payment-method" class="form-select" style="padding: 6px;">
                   <option value="Efectivo">Efectivo</option>
                   <option value="Nequi">Nequi</option>
                   <option value="Daviplata">Daviplata</option>
@@ -709,53 +749,236 @@
               </div>
               <div>
                 <label style="font-size: 0.78rem; font-weight: 700;">Dinero Recibido ($):</label>
-                <input type="number" id="pos-cash-given" class="form-input" placeholder="0">
+                <input type="number" id="pos-cash-given" class="form-input" placeholder="0" style="padding: 6px;">
               </div>
             </div>
 
-            <div style="background: var(--cream-bg); padding: 8px 12px; border-radius: 6px; display: flex; justify-content: space-between; font-size: 0.9rem;">
+            <div style="background: var(--cream-bg); padding: 8px 12px; border-radius: 6px; display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 10px;">
               <span>Cambio / Vueltas:</span>
               <strong id="pos-change-due" style="color: var(--fresh-green);">$0</strong>
             </div>
 
             <div style="display: flex; gap: 8px;">
-              <button type="button" class="btn btn-outline" id="pos-btn-clear-sale" style="color: var(--cocoa-dark); border-color: #ccc; flex: 1;">
+              <button type="button" class="btn btn-outline" id="pos-btn-clear-sale" style="flex: 1; padding: 8px; font-size: 0.85rem;">
                 Limpiar
               </button>
-              <button type="button" class="btn btn-primary" id="pos-btn-complete-sale" style="flex: 2;">
+              <button type="button" class="btn btn-primary" id="pos-btn-complete-sale" style="flex: 2; padding: 8px; font-size: 0.85rem;">
                 ✅ Cobrar Venta
               </button>
             </div>
           </div>
 
-          <!-- Estadísticas del Día -->
-          <div class="pos-stats-section">
-            <h5 style="font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; color: var(--text-light);">Resumen de Caja de Hoy:</h5>
-            <div class="pos-stats-grid">
-              <div class="pos-stat-box">
-                <strong id="pos-stat-count">0</strong>
-                <span>Ventas Registradas</span>
-              </div>
-              <div class="pos-stat-box">
-                <strong id="pos-stat-total">$0</strong>
-                <span>Ingreso Total</span>
-              </div>
-            </div>
-
-            <button type="button" class="btn btn-outline" id="pos-btn-print-receipt" style="width: 100%; font-size: 0.8rem; padding: 6px; color: var(--cocoa-dark); border-color: #ddd;">
-              🖨️ Imprimir Ticket / Factura
-            </button>
-
-            <div id="pos-receipt-print-area">
-              <!-- Ticket imprimible -->
-            </div>
-
-            <div id="pos-history-list" style="margin-top: 10px; max-height: 120px; overflow-y: auto; font-size: 0.78rem;">
-              <!-- Historial de ventas -->
+          <!-- Resumen de caja de hoy -->
+          <div style="margin-top: 14px; border-top: 1px solid var(--border-warm); padding-top: 10px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted);">
+              <span>Ventas Hoy: <strong id="pos-stat-count">0</strong></span>
+              <span>Total Hoy: <strong id="pos-stat-total" style="color: var(--cocoa-dark);">$0</strong></span>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODALES DE ADMINISTRACIÓN PRIVADA (ACCESIBLES DESDE EL BOTÓN OCULTO)
+       ========================================================================= -->
+
+  <!-- 1. Modal de Inicio de Sesión de Administrador -->
+  <div class="modal-overlay" id="admin-login-modal">
+    <div class="modal-card login-modal-card">
+      <button type="button" class="modal-close-btn" id="btn-close-login-modal" aria-label="Cerrar modal">✕</button>
+      
+      <div class="login-header">
+        <div class="login-icon-wrap">🔒</div>
+        <h3 style="color: var(--cocoa-dark); font-size: 1.35rem;">Panel de Administración</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Dulce Tentación — Panadería & Repostería</p>
+      </div>
+
+      <div class="login-error-alert" id="login-error-message"></div>
+
+      <form id="admin-login-form">
+        <div style="margin-bottom: 16px;">
+          <label for="login-email" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; color: var(--cocoa-dark);">Correo Electrónico:</label>
+          <input type="email" id="login-email" required class="form-input" placeholder="correo@ejemplo.com" autocomplete="username">
+        </div>
+
+        <div style="margin-bottom: 22px;">
+          <label for="login-password" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; color: var(--cocoa-dark);">Contraseña de Acceso:</label>
+          <input type="password" id="login-password" required class="form-input" placeholder="Ingresa tu contraseña" autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem;">
+          <span>🚀 Ingresar al Panel de Productos</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Modal Dashboard de Gestión de Productos de la Panadería -->
+  <div class="modal-overlay" id="admin-dashboard-modal">
+    <div class="modal-card dashboard-modal-card">
+      <div class="dash-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.6rem;">⚙️</span>
+          <div>
+            <h3 style="color: #fff; font-size: 1.25rem;">Administración de Productos</h3>
+            <span style="font-size: 0.8rem; color: #ffd8a8;">Dulce Tentación — Panadería & Repostería</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="btn btn-outline" id="btn-dash-logout-header" style="color: #fff; border-color: rgba(255,255,255,0.4); padding: 6px 14px; font-size: 0.8rem; background: rgba(0,0,0,0.25); border-radius: 6px; cursor: pointer;">
+            🔒 Salir y Bloquear
+          </button>
+          <button type="button" class="btn-close-drawer" id="btn-close-dash-modal" style="position: static; color: #fff; background: rgba(255,255,255,0.15);" aria-label="Cerrar panel">✕</button>
+        </div>
+      </div>
+
+      <div class="dash-content">
+        <!-- Métricas Rápidas de Inventario -->
+        <div class="dash-stats-grid">
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Total Productos</div>
+            <div class="dash-stat-val" id="admin-stat-total">0</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Panes</div>
+            <div class="dash-stat-val" id="admin-stat-panes" style="color: var(--primary-gold);">0</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Tortas / Postres</div>
+            <div class="dash-stat-val" id="admin-stat-postres" style="color: #db2777;">0</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Galletas</div>
+            <div class="dash-stat-val" id="admin-stat-galletas" style="color: #7c3aed;">0</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-label">Combos</div>
+            <div class="dash-stat-val" id="admin-stat-combos" style="color: #0284c7;">0</div>
+          </div>
+        </div>
+
+        <!-- Barra de Herramientas del Dashboard -->
+        <div class="dash-toolbar">
+          <div style="display: flex; gap: 10px; align-items: center; flex: 1;">
+            <button type="button" class="btn btn-primary" id="btn-create-new-prod" style="padding: 10px 18px; font-size: 0.85rem;">
+              <span>➕ Nuevo Producto</span>
+            </button>
+            <input type="text" id="admin-search-input" placeholder="🔍 Filtrar por nombre..." style="padding: 9px 12px; border: 1.5px solid var(--border-warm); border-radius: var(--radius-sm); font-size: 0.85rem; flex: 1;">
+            <select id="admin-filter-category" style="padding: 9px 12px; border: 1.5px solid var(--border-warm); border-radius: var(--radius-sm); font-size: 0.85rem;">
+              <option value="all">Todas las Categorías</option>
+              <option value="panes">Panes Artesanales</option>
+              <option value="postres">Tortas & Postres</option>
+              <option value="galletas">Galletas & Polvorones</option>
+              <option value="combos">Combos Especiales</option>
+            </select>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button type="button" class="btn btn-outline" id="btn-admin-export" title="Descargar copia JSON" style="padding: 8px 12px; font-size: 0.8rem;">
+              💾 Exportar
+            </button>
+            <label class="btn btn-outline" style="cursor: pointer; margin: 0; padding: 8px 12px; font-size: 0.8rem;" title="Cargar JSON">
+              📥 Importar
+              <input type="file" id="admin-import-file" accept=".json" style="display: none;">
+            </label>
+            <button type="button" class="btn btn-outline" id="btn-admin-reset" title="Restablecer iniciales" style="color: var(--danger-red); border-color: #fecaca; padding: 8px 12px; font-size: 0.8rem;">
+              🔄 Restablecer
+            </button>
+          </div>
+        </div>
+
+        <!-- Tabla de Productos -->
+        <div style="background: #fff; border-radius: var(--radius-sm); border: 1px solid var(--border-warm); overflow-x: auto;">
+          <table class="admin-props-table">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Disponibilidad</th>
+                <th style="text-align: right;">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="admin-products-tbody">
+              <!-- Renderizado dinámicamente -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Modal Editor / Creador de Producto -->
+  <div class="modal-overlay" id="product-editor-modal">
+    <div class="modal-card" style="max-width: 600px; padding: 0; overflow: hidden;">
+      <div style="background: var(--cocoa-dark); color: #fff; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+        <h3 id="editor-modal-title" style="color: #fff; font-size: 1.15rem;">✏️ Modificar Producto</h3>
+        <button type="button" class="btn-close-drawer" id="btn-close-editor-modal" style="position: static; color: #fff; background: rgba(255,255,255,0.15);" aria-label="Cerrar">✕</button>
+      </div>
+
+      <form id="product-editor-form">
+        <div style="padding: 24px; max-height: 70vh; overflow-y: auto;">
+          <input type="hidden" id="editor-prod-id" value="">
+
+          <div style="margin-bottom: 14px;">
+            <label for="editor-prod-name" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Nombre del Producto:*</label>
+            <input type="text" id="editor-prod-name" required placeholder="Ej: Pan de Queso Campesino" class="form-input">
+          </div>
+
+          <div class="form-row-dual" style="margin-bottom: 14px;">
+            <div>
+              <label for="editor-prod-category" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Categoría:*</label>
+              <select id="editor-prod-category" required class="form-select">
+                <option value="panes">Panadería Artesanal</option>
+                <option value="postres">Tortas & Postres</option>
+                <option value="galletas">Galletas & Polvorones</option>
+                <option value="combos">Combos Especiales</option>
+              </select>
+            </div>
+            <div>
+              <label for="editor-prod-price" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Precio en Pesos COP:*</label>
+              <input type="number" id="editor-prod-price" required placeholder="Ej: 5000" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-row-dual" style="margin-bottom: 14px;">
+            <div>
+              <label for="editor-prod-badge" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Etiqueta Destacada:</label>
+              <input type="text" id="editor-prod-badge" placeholder="Ej: 🔥 Recién Horneado, ⭐ Favorito" class="form-input">
+            </div>
+            <div>
+              <label for="editor-prod-available" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Estado:</label>
+              <select id="editor-prod-available" class="form-select">
+                <option value="true">🟢 Disponible para la venta</option>
+                <option value="false">🔴 Agotado temporalmente</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <label for="editor-prod-image" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Nombre de Archivo de Imagen o URL:</label>
+            <input type="text" id="editor-prod-image" placeholder="Ej: pan-casero-dorado.jpeg o URL web" class="form-input">
+            <small style="color: var(--text-muted); font-size: 0.75rem;">Puedes usar las imágenes locales: pan-casero-dorado.jpeg, pan-queso-paquete.jpeg, torta-chocolate-supremo.jpeg, etc.</small>
+          </div>
+
+          <div style="margin-bottom: 14px;">
+            <label for="editor-prod-description" style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Descripción del Producto:</label>
+            <textarea id="editor-prod-description" rows="3" placeholder="Describe los ingredientes, textura, sabor y porciones..." class="form-textarea"></textarea>
+          </div>
+        </div>
+
+        <div style="padding: 16px 24px; background: var(--cream-tint); border-top: 1px solid var(--border-warm); display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-outline" onclick="AdminUI.closeEditorModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary" style="padding: 10px 24px;">
+            💾 Guardar Producto
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -764,63 +987,8 @@
   <script src="js/cart.js"></script>
   <script src="js/custom-cake.js"></script>
   <script src="js/pos.js"></script>
+  <script src="js/admin.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- Animaciones de entrada al hacer scroll -->
-  <script>
-    (function() {
-      // Agregar clase fade-in-up a secciones y elementos clave
-      const targets = [
-        '.feature-box',
-        '.product-card',
-        '.review-card',
-        '.section-header',
-        '.cake-builder-card',
-        '.contact-info',
-        '.contact-showcase-box',
-        '.footer-brand-col',
-        '.footer-links-col',
-        '.footer-info-col'
-      ];
-
-      targets.forEach(selector => {
-        document.querySelectorAll(selector).forEach((el, i) => {
-          el.classList.add('fade-in-up');
-          el.style.transitionDelay = (i * 0.07) + 's';
-        });
-      });
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-      // Re-aplicar a tarjetas dinámicas al renderizarse
-      const gridObserver = new MutationObserver(() => {
-        document.querySelectorAll('.product-card:not(.fade-in-up)').forEach((el, i) => {
-          el.classList.add('fade-in-up');
-          el.style.transitionDelay = (i * 0.05) + 's';
-          observer.observe(el);
-        });
-        document.querySelectorAll('.review-card:not(.fade-in-up)').forEach((el, i) => {
-          el.classList.add('fade-in-up');
-          el.style.transitionDelay = (i * 0.1) + 's';
-          observer.observe(el);
-        });
-      });
-
-      const grid = document.getElementById('products-grid');
-      const reviews = document.getElementById('reviews-carousel');
-      if (grid) gridObserver.observe(grid, { childList: true });
-      if (reviews) gridObserver.observe(reviews, { childList: true });
-    })();
-  </script>
 </body>
 </html>
-
